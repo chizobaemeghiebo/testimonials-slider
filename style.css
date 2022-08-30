@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main .container .person img {
+  max-width: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: darkorange;
+  min-height: 100vh;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+main .container {
+  position: relative;
+  background-color: white;
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-image: url('images/pattern-bg.svg');
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: bottom right;
+}
+
+main .container .person {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  position: relative;
+}
+
+main .container .person .text-1,
+main .container .person .text-2 {
+  background-image: url('images/pattern-quotes.svg');
+  background-position: top -5% left 20%;
+  background-repeat: no-repeat;
+  background-size: 10%;
+  width: 55%;
+  margin-right: -3rem;
+  z-index: 10;
+}
+
+main .container .person .person-name {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+main .container .person .person-name span {
+  font-weight: normal;
+  color: gray;
+}
+main .container .person .img {
+  position: relative;
+  width: 40%;
+}
+
+main .container .person .img > img {
+  box-shadow: 0 20px 20px 2px rgba(0, 0, 0, 0.3);
+}
+
+.slider-btns {
+  background-color: white;
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+  border-radius: 20px;
+  position: absolute;
+  bottom: 1.5rem;
+  right: 12rem;
+}
+
+.slider-btns .next-btn,
+.slider-btns .prev-btn {
+  cursor: pointer;
+}
+
+main .container .person2 {
+  max-height: 0;
+  overflow: hidden;
+}
+
+main .container .person1.notactive {
+  max-height: 0;
+  overflow: hidden;
+}
+
+main .container .person2.active {
+  max-height: 100%;
+  overflow: visible;
+}
+
+/* attribution */
+.attribution {
+  margin-top: 3rem;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/********************* MEDIA QUERIES  ***********************/
+@media all and (max-width: 500px) {
+  main .container {
+    background-position: top right;
+    background-size: contain;
+  }
+
+  main .container .person {
+    flex-direction: column-reverse;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  main .container .person .img {
+    width: 100%;
+  }
+
+  main .container .person .text-1,
+  main .container .person .text-2 {
+    width: 100%;
+    margin: 0;
+    z-index: 0;
+  }
+
+  .slider-btns {
+    bottom: auto;
+    right: 50%;
+    left: 50%;
+    top: 56%;
+    width: 25%;
+    transform: translate(-50%, -50%);
+  }
+
+  .slider-btns.high {
+    top: 56%;
+  }
+
+  .slider-btns.low {
+    top: 54%;
+  }
+
+  .attribution {
+    margin-top: 1rem;
+  }
+}
+
+@media all and (max-width: 320px) {
+  .slider-btns.high {
+    top: 51%;
+  }
+
+  .slider-btns.low {
+    top: 46%;
+  }
+
+  .attribution {
+    margin-top: 0.5rem;
+  }
+}
